@@ -6,4 +6,12 @@ class Board
     @state = (1..9).to_a
   end
 
+  def full?
+    
+  end
+  
+
+  def increment_count_elem
+    @count_of_elem += 1
+  end
 end

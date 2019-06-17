@@ -10,7 +10,7 @@ RSpec.describe Board do
     context '#full?' do
       it 'should return true if all board state has been filled with X or O; otherwise false' do
         1.upto(9) { @board.increment_count_elem }
-        expect(board.full?).to be_truthy
+        expect(@board.full?).to be_truthy
       end
     end
     context '#position_occupied?' do
