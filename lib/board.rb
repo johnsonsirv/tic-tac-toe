@@ -11,7 +11,7 @@ class Board
   end
 
   def position_is_free?(position)
-    
+    @state[position].is_a? Integer
   end
 
   def increment_count_elem
