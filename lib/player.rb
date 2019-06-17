@@ -1,5 +1,8 @@
+# require './lib/game_cli'
+
 class Player
- attr_accessor :symbol
+  include UserInterface
+  attr_accessor :symbol
   
   def initialize(symbol)
    @symbol = symbol
