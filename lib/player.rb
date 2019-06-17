@@ -5,4 +5,12 @@ class Player
    @symbol = symbol
   end
 
+  
+
+
+
+  private  
+  def my_turn?(current_symbol)
+    @symbol.eql?(current_symbol) ? true : false
+  end
 end

@@ -16,4 +16,10 @@ RSpec.describe Player do
     end
   end
   
+  describe '#game play for each player' do
+    it 'should play if the game passes my symbol' do
+      expect(@victor.play("X")).to be_truthy
+      expect(@ojhonny.play("X")).to be_falsy
+    end
+  end
 end
