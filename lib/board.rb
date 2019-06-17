@@ -7,7 +7,7 @@ class Board
   end
 
   def full?
-    
+    @state.length.eql?(@count_of_elem)
   end
 
   def position_is_free?(position)
