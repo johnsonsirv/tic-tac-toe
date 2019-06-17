@@ -1,8 +1,8 @@
 class Player
-  attr_accessor :symbol
+ attr_accessor :symbol
   
   def initialize(symbol)
-    @symbol = symbol
+   
   end
-  
+
 end
