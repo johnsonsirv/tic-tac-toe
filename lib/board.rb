@@ -9,7 +9,10 @@ class Board
   def full?
     
   end
-  
+
+  def position_taken?(position)
+    
+  end
 
   def increment_count_elem
     @count_of_elem += 1
