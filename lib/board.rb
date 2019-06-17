@@ -14,6 +14,10 @@ class Board
     @state[position].is_a? Integer
   end
 
+  def update_state(symbol, position)
+    
+  end
+  
   def increment_count_elem
     @count_of_elem += 1
   end

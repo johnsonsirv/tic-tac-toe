@@ -24,7 +24,8 @@ RSpec.describe Board do
   describe '#update board state' do
     context 'player.play returns a valid move' do
       it 'should update board state at player position with their symbol' do
-        
+        @board.update_state("X", 5)
+        expect(@board.state[5]).to eql("X")
       end
     end
   end
