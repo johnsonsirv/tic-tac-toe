@@ -20,4 +20,18 @@ module UserInterface
     false
   end
 
+  def ask_position(player)
+    print "#{player} your turn: "
+    move = gets.chomp.to_i
+    unless is_valid_move?(move)
+      loop do
+        print "#{player} try again. you entered invalid input choose 1 - 9 (unoccupied): "
+        move = gets.chomp.to_i
+        break if is_valid_move?(move)
+      end
+    end
+
+    move - 1
+  end
+
 end

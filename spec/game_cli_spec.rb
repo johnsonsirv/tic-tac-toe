@@ -42,8 +42,8 @@ RSpec.describe UserInterface do
     end
   end
 
-  describe '#valid_input for different game moves a user makes', :ui_tests => :ui do
-    it 'asks player for input and return true if input is valid move (1..9)' do
+  describe '#ask_Player_input for different game moves a user makes', :ui_tests => :ui do
+    it 'returns true if players input is valid move (1..9)' do
       expect(is_valid_move?(10)).to be_falsy
     end
   end
