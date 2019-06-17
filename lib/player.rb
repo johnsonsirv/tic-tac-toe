@@ -7,7 +7,11 @@ class Player
 
   
   def play(current_symbol)
-    my_turn?(current_symbol) ? true : false
+    my_next_move = nil
+    if my_turn?(current_symbol)
+      my_next_move = ask_position(@symbol)
+    end
+    my_next_move
   end
 
 
