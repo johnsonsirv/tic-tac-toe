@@ -61,7 +61,7 @@ module UserInterface
     move - 1 #position on board
   end
 
-  def show_game_over_board(won = false, winner=nil)
+  def show_gameover_board(won=false, winner=nil)
     status = won ? "Gameover: #{winner} WINS !!!" : "Gameover: GAME DRAW"
     puts status
   end
