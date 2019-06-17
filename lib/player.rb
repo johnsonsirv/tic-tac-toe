@@ -6,7 +6,9 @@ class Player
   end
 
   
-
+  def play(current_symbol)
+    my_turn?(current_symbol) ? true : false
+  end
 
 
   private  
