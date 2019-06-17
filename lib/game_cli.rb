@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module UserInterface
-  
+  VALID_MOVES = (1..9)
   def show_board(state)
     board = ""
     grid_board = board.dup
@@ -13,6 +13,11 @@ module UserInterface
     grid_board << row_3 << line
     
     puts grid_board
+  end
+
+  def is_valid_move?(move)
+    return true if VALID_MOVES.cover? move
+    false
   end
 
 end

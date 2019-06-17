@@ -12,7 +12,7 @@ RSpec.describe UserInterface do
   let (:game_draw_state) {[""]}
   let (:board_full_state) {["X","O","O","O","X","X","O","X","O"]}
   
-  describe '#display_board in different Game Board situations', :ui_tests => :ui do
+  describe '#show_board in different Game Board situations on CLI', :ui_tests => :ui do
     it 'prints a blank board when the board state is empty' do
       output = capture_puts{ show_board(empty_state) }
       rows = output.split("\n")
@@ -42,4 +42,9 @@ RSpec.describe UserInterface do
     end
   end
 
+  describe '#valid_input for different game moves a user makes', :ui_tests => :ui do
+    it 'asks player for input and return true if input is valid move (1..9)' do
+      expect(is_valid_move?(10)).to be_falsy
+    end
+  end
 end
