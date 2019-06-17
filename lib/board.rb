@@ -10,7 +10,7 @@ class Board
     
   end
 
-  def position_taken?(position)
+  def position_is_free?(position)
     
   end
 
