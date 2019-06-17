@@ -37,7 +37,7 @@ module UserInterface
     row_3 = " #{state[6]} | #{state[7]} | #{state[8]} \n"
     grid_board << row_1 << line
     grid_board << row_2 << line
-    grid_board << row_3 << line
+    grid_board << row_3
     
     puts grid_board
   end
@@ -59,6 +59,11 @@ module UserInterface
     end
 
     move - 1 #position on board
+  end
+
+  def show_game_over_board(won = false, winner=nil)
+    status = won ? "Gameover: #{winner} WINS !!!" : "Gameover: GAME DRAW"
+    puts status
   end
 
 end
