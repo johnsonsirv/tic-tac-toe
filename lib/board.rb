@@ -15,9 +15,11 @@ class Board
   end
 
   def update_state(symbol, position)
-    
+    @state[position] = symbol
+    increment_count_elem
   end
-  
+
+  private
   def increment_count_elem
     @count_of_elem += 1
   end

@@ -2,14 +2,14 @@ require './lib/board'
 
 
 
-#Player
+# Player
 RSpec.describe Board do
   before { @board = Board.new  }
   
   describe '#board state at different situations' do
     context '#full?' do
       it 'should return true if all board state has been filled with X or O; otherwise false' do
-        1.upto(9) { @board.increment_count_elem }
+        0.upto(8) { |i| @board.update_state("X", i) }
         expect(@board.full?).to eql(true)
       end
     end
