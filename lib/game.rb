@@ -20,25 +20,25 @@ class Game
 
   def start
     show_board(@board.state)
-    first_player = first_player
-    first_player.play(f_player.symbol)
-    
+    game_player = first_player
     #game_loop_here
+    until game_over?
+      position = game_player.play(game_player.symbol)
+      make_move(game_player, position)
+      show_board(@board.state)
 
-    c_player = current_player
-    c_player.play(c_player.symbol)
-
-
+      game_player = current_player
+    end
     show_gameover_status
   end
 
   def first_player
     if @player_one.symbol.eql?(choose_first_play_symbol)
       @play_turn = 0
-      return @player_one
+      @player_one
     else
       @play_turn = 1
-      return @player_two
+      @player_two
     end
   end
 
@@ -60,7 +60,7 @@ class Game
   end
 
   def game_over?
-    won?(@player_one.moves) || won?(@player_two.moves) || draw?
+    won?(@player_one) || won?(@player_two) || draw?
   end
 
   private
@@ -80,7 +80,6 @@ class Game
     else
       show_gameover_board
     end
-   
   end
 
 end
