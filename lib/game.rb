@@ -76,8 +76,8 @@ class Game
   def free_position(position, player)
     unless @board.position_is_free?(position)
       loop do
-        puts "warning: #{player.symbol} try again. position is occupied!!"
-        position = player.play(player.symbol)
+        show_board_occupied_warning(player.symbol)
+        position = player.play(player.symbol, new_move: false)
         return position if @board.position_is_free?(position)
       end
     end
