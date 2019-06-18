@@ -1,4 +1,4 @@
-require './lib/game_cli'
+# require './lib/game_cli'
 
 class Game
   include UserInterface
@@ -24,7 +24,7 @@ class Game
     #game_loop_here
     until game_over?
       position = game_player.play(game_player.symbol)
-      valid_move = free_position(position, game_player)
+      valid_move = valid_position(position, game_player)
       make_move(game_player, valid_move)
       show_board(@board.state)
 
@@ -74,7 +74,7 @@ class Game
     @play_turn = @play_turn.eql?(1) ? 0 : 1
   end
 
-  def free_position(position, player)
+  def valid_position(position, player)
     unless @board.position_is_free?(position)
       loop do
         show_board_occupied_warning(player.symbol)

@@ -6,8 +6,8 @@ require './lib/player'
 # Game Controller
 RSpec.describe Game do
   before do 
-    @player_one = Player.new("X")
-    @player_two = Player.new("O")
+    @player_one = Player.new("vic","X")
+    @player_two = Player.new("oj","O")
     @board = Board.new
     @game = Game.new(@player_one, @player_two, @board)
   end

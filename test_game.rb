@@ -13,15 +13,15 @@
 #   win: [ [1,2,3],[4,5,6],[7,8,9] ]
 # }
 
-require './lib/game'
-require './lib/board'
-require './lib/player'
+# require './lib/game'
+# require './lib/board'
+# require './lib/player'
 
-player_1 = Player.new("X")
-player_2 = Player.new("O")
-board = Board.new
-game = Game.new(player_1, player_2, board)
+# player_1 = Player.new("Victor", "X")
+# player_2 = Player.new("Ojohny", "O")
+# board = Board.new
+# game = Game.new(player_1, player_2, board)
 
-game.start
+# game.start
 
 
