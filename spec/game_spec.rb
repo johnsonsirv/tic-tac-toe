@@ -23,8 +23,11 @@ RSpec.describe Game do
       end
     end
     context '#game in play' do
-      it 'positions the player\'s move on the board if position is free' do
-        
+      it 'positions the player\'s move on the board if position is free; otherwise game ask you for another position' do
+        curr_player = @game.current_player
+        curr_player_move = curr_player.play(curr_player.symbol)
+        @game.make_move(curr_player, curr_player_move) if @board.position_is_free(curr_player_move)
+        expect(@board.state[curr_player_move]).to eql(curr_player.symbol)
       end
       it 'returns gameover when there is a winnner and board is not full' do
         

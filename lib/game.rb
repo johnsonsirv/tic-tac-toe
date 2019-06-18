@@ -21,7 +21,9 @@ class Game
    player_turn.zero? ? @player_one : @player_two
   end
 
-
+  def make_move(player, position)
+    @board.update_status(player.symbol, position)
+  end
 
   private
   def choose_first_play_symbol
