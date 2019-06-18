@@ -66,4 +66,8 @@ module UserInterface
     puts status
   end
 
+  def show_board_occupied_warning(player)
+    puts "warning position is occupied!! #{player} try again "
+  end
+
 end
