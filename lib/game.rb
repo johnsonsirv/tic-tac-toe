@@ -49,6 +49,7 @@ class Game
 
   def make_move(player, position)
     @board.update_state(player.symbol, position)
+    player.game_moves << position
   end
 
   def won?(player)
@@ -77,7 +78,7 @@ class Game
     unless @board.position_is_free?(position)
       loop do
         show_board_occupied_warning(player.symbol)
-        position = player.play(player.symbol, new_move: false)
+        position = player.play(player.symbol)
         return position if @board.position_is_free?(position)
       end
     end
