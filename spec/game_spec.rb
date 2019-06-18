@@ -1,25 +1,37 @@
-require './lib/player'
+require './lib/game'
 
 
 
-#Player
-RSpec.describe Player do
+# Game Controller
+RSpec.describe Game do
   before do 
-    @victor  = Player.new("X")
-    @ojhonny  = Player.new("O")
+    @board = Board.new
+   @game = Game.new("X","Y", @board)
   end
   
-  describe '#a new player and symbol for the game' do
-    it 'creates a new player and set his symbol for the game' do
-      expect(@victor.symbol).to eql("X")
-      expect(@ojhonny.symbol).to eql("O")
+  describe '#game controller' do
+    context '#game start' do
+      it 'decides first player symbol' do
+        first_player_symb = @game.choose_first_player_symbol
+        expect(@board.sate.include?first_player_symb).to eql(false)
+      end
+    end
+    context '#game in play' do
+      it 'places the player\'s move on the board if position is free' do
+        
+      end
+      it 'passes game turn between player 1 and player 2' do
+        
+      end
+      it 'returns gameover when there is a winnner and board is not full' do
+        
+      end
+    end
+    context '#game over' do
+      it 'returns gameover when board is full and no winner yet in play' do
+        
+      end
     end
   end
-  
-  describe '#game play for each player' do
-    it 'should play if the game passes my symbol' do
-      expect(@victor.play("X")).not_to be_nil
-      expect(@ojhonny.play("X")).to be_nil
-    end
-  end
+
 end
