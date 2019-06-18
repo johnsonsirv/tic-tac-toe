@@ -44,36 +44,19 @@ RSpec.describe Game do
           expect(@board.state[curr_player_move]).to eql(curr_player.symbol)
         end
       end
-      describe '#won?' do
-        it 'returns true for a win; otherwise false' do
-          @board.state = %w[X O X O X X O O X]
-          expect(@game.won?).to be(true)
-        end
-      end
     end
     context '#game over' do
-      describe '#full?' do
-        it 'returns gameover when board is full and no winner yet in play' do
-        
+      describe '#won?' do
+        it 'returns true for a win; otherwise false' do
+          expect(@game.won?(@game.current_player)).to be(false)
+        end
+      end
+      describe '#draw?' do
+        it 'returns true when board is full and no winner yet in-play' do
+          expect(@game.draw?).to be(false)
         end
       end
     end
 
-    # context '#winning the game' do
-    #     describe 'WIN_COMBINATIONS' do
-    #       it 'defines a constant WIN_COMBINATIONS with arrays for each win combination' do
-    #         expect(WIN_COMBINATIONS.size).to eq(8)
-      
-    #         expect(WIN_COMBINATIONS).to include_array([0, 1, 2])
-    #         expect(WIN_COMBINATIONS).to include_array([3, 4, 5])
-    #         expect(WIN_COMBINATIONS).to include_array([6, 7, 8])
-    #         expect(WIN_COMBINATIONS).to include_array([0, 3, 6])
-    #         expect(WIN_COMBINATIONS).to include_array([1, 4, 7])
-    #         expect(WIN_COMBINATIONS).to include_array([2, 5, 8])
-    #         expect(WIN_COMBINATIONS).to include_array([0, 4, 8])
-    #         expect(WIN_COMBINATIONS).to include_array([6, 4, 2])
-    #       end
-    #   end
-    # end
   end
 end

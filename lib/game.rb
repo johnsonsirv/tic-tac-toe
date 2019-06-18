@@ -30,8 +30,13 @@ class Game
     @board.update_state(player.symbol, position)
   end
 
-  def won?
-    (current_player.game_moves.combination(3).to_a & WINNING_COMBINATIONS).size > 0
+  def won?(player)
+    (player.game_moves.combination(3).to_a & WINNING_COMBINATIONS).size > 0
+  end
+
+  def draw?
+    return true if @board.full?
+    false
   end
 
   private
