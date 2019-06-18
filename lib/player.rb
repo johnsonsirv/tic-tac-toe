@@ -2,10 +2,11 @@
 
 class Player
   include UserInterface
-  attr_accessor :symbol
+  attr_accessor :symbol, :game_moves
   
   def initialize(symbol)
    @symbol = symbol
+   @game_moves = []
   end
 
   
@@ -13,6 +14,7 @@ class Player
     my_next_move = nil
     if my_turn?(current_symbol)
       my_next_move = ask_position(@symbol)
+      @game_moves << my_next_move
     end
     my_next_move
   end
