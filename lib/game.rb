@@ -24,7 +24,8 @@ class Game
     #game_loop_here
     until game_over?
       position = game_player.play(game_player.symbol)
-      make_move(game_player, position)
+      valid_move = free_position(position, game_player)
+      make_move(game_player, valid_move)
       show_board(@board.state)
 
       game_player = current_player
@@ -70,6 +71,18 @@ class Game
   
   def swap_player_turn
     @play_turn = @play_turn.eql?(1) ? 0 : 1
+  end
+
+  def free_position(position, player)
+    unless @board.position_is_free?(position)
+      loop do
+        puts "warning: #{player.symbol} try again. position is occupied!!"
+        position = player.play(player.symbol)
+        return position if @board.position_is_free?(position)
+      end
+    end
+
+    position
   end
 
   def show_gameover_status
