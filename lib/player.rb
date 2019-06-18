@@ -11,11 +11,10 @@ class Player
   end
 
   
-  def play(current_symbol, new_move: true)
+  def play(current_symbol)
     my_next_move = nil
     if my_turn?(current_symbol)
       my_next_move = ask_position(@symbol)
-      @game_moves << my_next_move if new_move
     end
     my_next_move
   end
