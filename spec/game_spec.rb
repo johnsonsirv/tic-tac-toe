@@ -14,16 +14,16 @@ RSpec.describe Game do
   
   describe '#game controller' do
     context '#game start' do
-      it 'decides first player symbol' do
-        first_player_symb = @game.choose_first_player_symbol
-        expect(@board.state.include?(first_player_symb)).to eql(false)
+      it 'decides first player based on random symbol chosen by the game; board state does not contain that symbol' do
+        expect(@board.state.include?@game.first_player.symbol).to eql(false)
       end
-      it 'passes game turn between player 1 and player 2' do
-        
+      it 'returns current player by swapping game turn between player 1 and player 2' do
+        @game.play_turn = 0
+        expect(@game.current_player.symbol).to eql(@player_two.symbol)
       end
     end
     context '#game in play' do
-      it 'places the player\'s move on the board if position is free' do
+      it 'positions the player\'s move on the board if position is free' do
         
       end
       it 'returns gameover when there is a winnner and board is not full' do
