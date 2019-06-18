@@ -2,10 +2,15 @@
 
 class Game
   # include UserInterface
-  @@game_symbols = ["X","O"]
- 
   attr_accessor :player_one, :player_two, :board, :play_turn
   
+  @@game_symbols = ["X","O"]
+  WINNING_COMBINATIONS = [
+    [0,1,2], [3,4,5], [6,7,8],
+    [0,3,6], [1,4,7], [2,5,8],
+    [0,4,8], [2,4,6]
+  ].freeze
+
   def initialize(player_one, player_two, board)
     @player_one = player_one
     @player_two = player_two
@@ -22,7 +27,11 @@ class Game
   end
 
   def make_move(player, position)
-    @board.update_status(player.symbol, position)
+    @board.update_state(player.symbol, position)
+  end
+
+  def won?
+    (current_player.game_moves.combination(3).to_a & WINNING_COMBINATIONS).size > 0
   end
 
   private
