@@ -19,6 +19,7 @@ def start_game
   game.start
 end
 
+# the game starts from here
 start_game
 
 
