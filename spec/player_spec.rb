@@ -5,8 +5,8 @@ require './lib/player'
 #Player
 RSpec.describe Player do
   before do 
-    @victor  = Player.new("X")
-    @ojhonny  = Player.new("O")
+    @victor  = Player.new("vitctor","X")
+    @ojhonny  = Player.new("ojohny", "O")
   end
   
   describe '#a new player and symbol for the game' do
