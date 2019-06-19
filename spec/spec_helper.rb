@@ -1,4 +1,3 @@
-# require './lib/game_cli'
 
 RSpec.configure do |config|
   config.order = :default
