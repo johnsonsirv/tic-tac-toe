@@ -47,6 +47,11 @@ module UserInterface
     false
   end
 
+  def ask_player_name(symbol)
+    print "Player '#{symbol}' Enter a name: "
+    gets.chomp.to_s
+  end
+
   def ask_position(player)
     print "#{player} your turn. choose position: "
     move = gets.chomp.to_i
