@@ -77,7 +77,7 @@ class Game
   def valid_position(position, player)
     unless @board.position_is_free?(position)
       loop do
-        show_board_occupied_warning(player.symbol)
+        show_board_occupied_warning(player.name)
         position = player.play(player.symbol)
         return position if @board.position_is_free?(position)
       end
@@ -88,9 +88,9 @@ class Game
 
   def show_gameover_status
     if won?(@player_one)
-      show_gameover_board(true, @player_one.symbol)
+      show_gameover_board(true, @player_one.name)
     elsif won?(@player_two)
-      show_gameover_board(true, @player_two.symbol)
+      show_gameover_board(true, @player_two.name)
     else
       show_gameover_board
     end

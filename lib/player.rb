@@ -5,7 +5,7 @@ class Player
   attr_accessor :name, :symbol, :game_moves
   
   def initialize(name, symbol)
-   @name = name
+   @name = name.upcase
    @symbol = symbol
    @game_moves = []
   end
@@ -14,7 +14,7 @@ class Player
   def play(current_symbol)
     my_next_move = nil
     if my_turn?(current_symbol)
-      my_next_move = ask_position(@symbol)
+      my_next_move = ask_position(@name)
     end
     my_next_move
   end

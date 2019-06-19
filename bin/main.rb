@@ -5,7 +5,7 @@ require '../lib/game_cli'
 
 extend UserInterface
 
-def main
+def start_game
   show_welcome_message
 
   player_one_name = ask_player_name('X')
@@ -19,7 +19,7 @@ def main
   game.start
 end
 
-main
+start_game
 
 
 
