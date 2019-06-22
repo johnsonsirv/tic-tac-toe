@@ -17,6 +17,7 @@ class Game
     @player_two = player_two
     @board = board
     @play_turn = 0
+    @winner = nil
   end
 
   def start
@@ -24,12 +25,11 @@ class Game
     game_player = first_player
     #game_loop_here
     until game_over?
-     
       position = game_player.play(game_player.symbol)
       valid_move = valid_position(position, game_player)
       make_move(game_player, valid_move)
       show_board(@board.state)
-
+      
       game_player = current_player
     end
     show_gameover_status
@@ -51,11 +51,18 @@ class Game
 
   def make_move(player, position)
     @board.update_state(player.symbol, position)
-    player.game_moves << position
+    winner_status_update(player)
   end
 
-  def won?(player)
-    (player.game_moves.combination(3).to_a & WINNING_COMBINATIONS).size > 0
+  def winner_status_update(player)
+    player_positions = []
+    @board.state.each_with_index { |x, idx| player_positions << idx if x == player.symbol }
+    WINNING_COMBINATIONS.each do |winning_case|
+      if (player_positions & winning_case).length == 3
+        @winner = player
+        break
+      end
+    end
   end
 
   def draw?
@@ -63,7 +70,7 @@ class Game
   end
 
   def game_over?
-    won?(@player_one) || won?(@player_two) || draw?
+    @winner || draw?
   end
 
   private
@@ -88,10 +95,8 @@ class Game
   end
 
   def show_gameover_status
-    if won?(@player_one)
-      show_gameover_board(true, @player_one.name)
-    elsif won?(@player_two)
-      show_gameover_board(true, @player_two.name)
+    if @winner
+      show_gameover_board(true, @winner.name)
     else
       show_gameover_board
     end
