@@ -42,7 +42,7 @@ See [Game Rules & Strategy](https://en.wikipedia.org/wiki/Tic-tac-toe).
 ./lib/board.rb
 ./lib/game.rb
 ./lib/player.rb
-./lib/game_cli.rb
+./bin/game_cli.rb
 ```
 
 ## Installation / Usage
