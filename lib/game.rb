@@ -1,4 +1,4 @@
-require_relative 'game_cli'
+require_relative '../bin/game_cli'
 
 class Game
   include UserInterface
@@ -87,7 +87,7 @@ class Game
       loop do
         show_board_occupied_warning(player.name)
         position = player.play(player.symbol)
-        valid_position(position, player)
+        return valid_position(position, player)
       end
     end
 

@@ -1,7 +1,7 @@
-require '../lib/game'
-require '../lib/board'
-require '../lib/player'
-require '../lib/game_cli'
+require_relative '../lib/game'
+require_relative '../lib/board'
+require_relative '../lib/player'
+require_relative 'game_cli'
 
 extend UserInterface
 
