@@ -79,7 +79,7 @@ class Game
       loop do
         show_board_occupied_warning(player.name)
         position = player.play(player.symbol)
-        return position if @board.position_is_free?(position)
+        valid_position(position, player)
       end
     end
 
