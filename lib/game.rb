@@ -24,6 +24,7 @@ class Game
     game_player = first_player
     #game_loop_here
     until game_over?
+     
       position = game_player.play(game_player.symbol)
       valid_move = valid_position(position, game_player)
       make_move(game_player, valid_move)
