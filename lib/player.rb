@@ -1,4 +1,4 @@
-require './../lib/game_cli'
+require_relative 'game_cli'
 
 class Player
   include UserInterface

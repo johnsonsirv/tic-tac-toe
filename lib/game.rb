@@ -1,4 +1,4 @@
-require './../lib/game_cli'
+require_relative 'game_cli'
 
 class Game
   include UserInterface
@@ -57,8 +57,7 @@ class Game
   end
 
   def draw?
-    return true if @board.full?
-    false
+    @board.full?
   end
 
   def game_over?
