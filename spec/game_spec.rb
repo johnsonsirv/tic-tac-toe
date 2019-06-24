@@ -12,51 +12,55 @@ RSpec.describe Game do
     @game = Game.new(@player_one, @player_two, @board)
   end
   
-  describe '#game controller' do
-    context '#game start' do
-      describe '#first_player' do
-        it 'decides first player based on random symbol chosen by the game; board state does not contain that symbol' do
-          expect(@board.state.include?@game.first_player.symbol).to eql(false)
-        end
-      end
-     describe '#current_player' do
-        it 'returns current player by swapping game turn between player 1 and player 2' do
-          @game.play_turn = 0
-          expect(@game.current_player.symbol).to eql(@player_two.symbol)
-        end
-     end
+  context '#first_player' do
+    it 'should return first player based on random symbol chosen by the game; board state does not contain that symbol' do
+      expect(@board.state.include?@game.first_player.symbol).to eql(false)
     end
-
-    context '#game in play' do
-      describe '#position_taken?' do
-        it 'returns true/false based on position in board' do
-          @board.state[0] = 'X'
-          expect(@board.position_is_free?(0)).to be(false)
-          expect(@board.position_is_free?(8)).to be(true)
-    
-        end
-      end
-      describe '#make_move' do
-        it 'positions the player\'s move on the board if position is free; otherwise game ask you for another position' do
-          curr_player = @game.current_player
-          curr_player_move = curr_player.play(curr_player.symbol)
-          @game.make_move(curr_player, curr_player_move) if @board.position_is_free?(curr_player_move)
-          expect(@board.state[curr_player_move]).to eql(curr_player.symbol)
-        end
-      end
-    end
-    context '#game over' do
-      describe '#won?' do
-        it 'returns true for a win; otherwise false' do
-          expect(@game.won?(@game.current_player)).to be(false)
-        end
-      end
-      describe '#draw?' do
-        it 'returns true when board is full and no winner yet in-play' do
-          expect(@game.draw?).to be(false)
-        end
-      end
-    end
-
   end
+  context '#current_player' do
+    it 'should swap game turn between player 1 and player 2' do
+      @game.play_turn = 0
+      expect(@game.current_player.symbol).to eql(@player_two.symbol)
+    end
+ end
+  context '#make_move' do
+    before do
+      @game.make_move(@player_one, 4)
+    end
+    it 'should position the player\'s move on the board' do
+      expect(@board.state[4]).to eql('X')
+    end
+  end
+  context '#winner_status_update' do
+    it 'should update game winner to current player if winner moves result to win' do
+      0.upto(2) { |indx| @board.state[indx] = 'X'}
+      @game.winner_status_update(@player_one)
+       expect(@game.winner.symbol).to eql(@player_one.symbol) #winner is player one
+    end
+    it 'should NOT update winner status when current player move does NOT result to win' do
+      @game.winner_status_update(@player_two)
+       expect(@game.winner).to be_nil #no winner yet
+    end
+  end
+  context '#draw?' do
+    it 'should return true when board is full' do
+      0.upto(8) { |i| @board.update_state("O", i) }
+      expect(@game.draw?).to be(true)
+    end
+    it 'should return false when board is NOT full' do
+      0.upto(6) { |i| @board.update_state("X", i) }
+      expect(@game.draw?).to be(false)
+    end
+  end
+  context '#game_over' do
+    it 'should return true when board is full and no winner yet in-play' do
+      0.upto(8) { |i| @board.update_state("X", i) }
+      expect(@game.game_over?).to be(true)
+    end
+    it 'should return false when board is NOT full and no winner yet in-play' do
+        0.upto(1) { |indx| @board.state[indx] = 'X'}
+        expect(@game.game_over?).to be(false)
+    end
+  end
+
 end
