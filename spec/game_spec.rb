@@ -50,7 +50,7 @@ RSpec.describe Game do
         it 'returns true for a win; otherwise false' do
          0.upto(2) { |indx| @board.state[indx] = 'X'}
          @game.winner_status_update(@player_one)
-          expect(@game.winner.symbol).to eql(@player_one.symbol)
+          expect(@game.winner.symbol).to eql(@player_one.symbol) #winner is player one
         end
       end
       describe '#game_draw?' do
