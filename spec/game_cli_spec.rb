@@ -1,4 +1,4 @@
-require '../lib/game_cli'
+require './bin/game_cli'
 
 #configure module for ui tests
 RSpec.configure do |c|

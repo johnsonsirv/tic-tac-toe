@@ -2,7 +2,7 @@ require_relative '../bin/game_cli'
 
 class Game
   include UserInterface
-  attr_accessor :play_turn
+  attr_accessor :play_turn, :winner
   attr_reader :player_one, :player_two, :board
   
   @@game_symbols = ["X","O"]

@@ -46,12 +46,14 @@ RSpec.describe Game do
       end
     end
     context '#game over' do
-      describe '#won?' do
+      describe '#game_winner?' do
         it 'returns true for a win; otherwise false' do
-          expect(@game.won?(@game.current_player)).to be(false)
+         0.upto(2) { |indx| @board.state[indx] = 'X'}
+         @game.winner_status_update(@player_one)
+          expect(@game.winner.symbol).to eql(@player_one.symbol)
         end
       end
-      describe '#draw?' do
+      describe '#game_draw?' do
         it 'returns true when board is full and no winner yet in-play' do
           expect(@game.draw?).to be(false)
         end
