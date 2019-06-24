@@ -47,4 +47,51 @@ RSpec.describe UserInterface do
       expect(is_valid_move?(10)).to be_falsy
     end
   end
+
+  describe '#show_board_occupied_warning', :ui_tests => :ui do
+    it 'should display warning position is occupied!! player name try again' do
+      output = capture_puts{ show_board_occupied_warning('Vic') }
+      rows = output.split("\n")
+      expect(rows[0]).to eq("warning position is occupied!! Vic try again ")
+    end
+  end
+
+  describe '#show_gameover_board', :ui_tests => :ui do
+    it 'should display Gameover player name Wins!! when game is won' do
+      output = capture_puts{ show_gameover_board(true, 'Vic') }
+      rows = output.split("\n")
+      expect(rows[0]).to eq("Gameover: Vic WINS !!!")
+    end
+    it 'should display Gameover: Game Draw when game is Draw' do
+      output = capture_puts{ show_gameover_board }
+      rows = output.split("\n")
+      expect(rows[0]).to eq("Gameover: GAME DRAW")
+    end
+  end
+
+  describe '#ask_player_name', :ui_tests => :ui do
+    it 'should display prompt for a player name' do
+      output = capture_puts{ ask_player_name('X') }
+      rows = output.split("\n")
+      expect(rows[0]).to eq("Player 'X' Enter a name: ")
+    end
+  end
+
+  describe '#board_guide', :ui_tests => :ui do
+    it 'should display board guide with symbols and positions' do
+      output = capture_puts{ board_guide  }
+      rows = output.split("\n")
+      expect(rows[2]).to eq(" X | O | X |=>  1 | 2 | 3 ".rjust(49))
+    end
+  end
+
+  describe '#show_welcome_message', :ui_tests => :ui do
+    it 'should display welcom message to players' do
+      output = capture_puts{ show_welcome_message  }
+      rows = output.split("\n")
+      expect(rows[1]).to eq("Tic Tac Toe is a paper-and-pencil game for two players, X and O, ".center(80))
+    end
+  end
+
+
 end

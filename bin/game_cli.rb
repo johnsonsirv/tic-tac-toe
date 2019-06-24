@@ -14,7 +14,7 @@ module UserInterface
     grid_board << row_1 << line
     grid_board << row_2 << line
     grid_board << row_3 << line
-    grid_board
+    puts grid_board
   end
 
   def show_welcome_message
@@ -24,7 +24,7 @@ module UserInterface
     line3 = "The player who succeeds in placing three of their marks in a ".center(80)
     line4 = "horizontal, vertical, or diagonal row wins the game.".center(80)
     puts border, line1, line2, line3, line4, border
-    puts board_guide
+    board_guide
   end
  
 
