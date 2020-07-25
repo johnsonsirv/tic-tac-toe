@@ -1,5 +1,7 @@
-# Tic Tac Toe (Advanced OOP)
-This project implements advanced object oriented programming concepts to build a simple [Tic Tac Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) game played on the Command Line Interface (CLI)
+<h1 align="center">Tic Tac Toe (Advanced OOP in Ruby)</h1>
+
+<p>
+This project implements advanced object oriented programming concepts to build a simple <a href="https://en.wikipedia.org/wiki/Tic-tac-toe">[Tic Tac Toe]</a> game played on the Command Line Interface (CLI).
 
 This project was completed in line with standards provided by [Microverse](https://www.microverse.org/ "The Global School for Remote Software Developers!").
 
@@ -17,12 +19,13 @@ horizontal, vertical, or diagonal row wins the game.
 
 See [Game Rules & Strategy](https://en.wikipedia.org/wiki/Tic-tac-toe).
 
+</p>
 
-## See Demo
+## See Demo:
 
 [Play Game Online](https://tic-tac-toe.victorokeugo.repl.run)
 
-## Technologies
+## Built with:
 
 - Ruby
 - TDD
@@ -45,13 +48,15 @@ See [Game Rules & Strategy](https://en.wikipedia.org/wiki/Tic-tac-toe).
 ./bin/game_cli.rb
 ```
 
-## Installation / Usage
+## Installation:
 
 > Clone the repository to your local machine
 
 ```sh
 $ git clone https://github.com/johnsonsirv/tic-tac-toe.git
 ```
+
+##  Usage:
 
 > Go to the directory
 
@@ -73,8 +78,15 @@ $ ruby main.rb
 
 > Follow the instructions provided by the Game.
 
+### Contributor(s):
 
-## How to contribute
+[Victor Okeugo](https://angel.co/u/victorokeugo/)
+
+- Github: [@johnsonsirv](https://github.com/johnsonsirv)
+- Twitter: [@vokeugo](https://twitter.com/@vokeugo/)
+- Email: [okeugo.victor.c@gmail.com]()
+
+## How to contribute:
 1. Fork it (https://github.com/johnsonsirv/tic-tac-toe/fork)
 2. Create your feature (dev) branch (git checkout -b feature/[choose-a-name])
 3. Commit your changes (git commit -m 'What this commit will fix/add')
